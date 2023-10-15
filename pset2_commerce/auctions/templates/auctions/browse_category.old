@@ -1,0 +1,21 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <ul>
+        {% for listing in listings %}
+            <li>
+                <a href="{% url 'listing_id' listing_id=listing.id %}">{{ listing.title }}</a>
+                <ul>
+                    <li>Description: {{ listing.description }}</li>
+                    {% if listing.highest_bid is None %}
+                        <li>Price: ${{ listing.list_price }}</li>
+                    {% else %}
+                        <li>Price: ${{ listing.highest_bid.amount }}</li>
+                    {% endif %}
+                    <li>Seller: {{ listing.listed_by }}</li>
+                    <li>Posted: {{ listing.date_listed }}</li>
+                </ul>
+            </li>
+
+    </ul>
+{% endblock %}
