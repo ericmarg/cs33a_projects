@@ -1,0 +1,42 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="posts">
+        {% for post in posts %}
+            <div class="post" id="{{ post.id }}">
+                <h3>{{ post.user }}</h3>
+                <div class="post-content">{{ post.content }}</div>
+                <p>{{ post.timestamp }}</p>
+                <button class="like">&#x2764; <span class="like-count">{{ post.like_count }}</span></button>
+                {% if post.user == user %}
+                    <button type="button" class="btn btn-link edit-button">Edit post</button>
+                {% endif %}
+            </div>
+        {% empty %}
+            <h3>No posts to display</h3>
+        {% endfor %}
+    </div>
+    <nav aria-label="...">
+        <ul class="pagination">
+            {% if current_page.has_previous %}
+                <a class="page-link" href="?page={{ current_page.previous_page_number }}" tabindex="-1">Previous</a>
+            {% endif %}
+            {% for page in pages %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page.number }}">{{ page.number }}</a>
+                </li>
+            {% endfor %}
+            {% if current_page.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ current_page.next_page_number }}">Next</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endblock %}

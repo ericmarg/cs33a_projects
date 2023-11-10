@@ -95,11 +95,11 @@ def bid(request, listing_id):
     form = BidForm(request.POST)
     if form.is_valid():
         listing = Listings.objects.get(pk=listing_id)
-        try:
-            current_price = listing.highest_bid.amount
         # If no prior bid was made, highest_bid is None and has no amount attribute
-        except AttributeError:  # No prior bid, so current price is list_price
+        if listing.highest_bid is None:
             current_price = listing.list_price
+        else:
+            current_price = listing.highest_bid.amount
 
         # Check bid amount is higher than current item price
         if form.cleaned_data["amount"] <= current_price:

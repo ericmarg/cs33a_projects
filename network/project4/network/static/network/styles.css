@@ -1,0 +1,17 @@
+.post {
+    border-style: solid;
+    border-radius: 8px;
+    border-color: grey;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.post p {
+  margin: 0; /* This removes all margin (top and bottom) */
+}
+
+.like {
+  background: none;
+  border: none;
+  font-size: 20px;
+}

@@ -1,0 +1,13 @@
+textarea {
+    min-height: 400px;
+}
+
+.preview {
+    border-style: solid;
+    border-color: cornflowerblue;
+    border-radius: 6px;
+}
+
+.preview.read {
+    background-color: lightgrey;
+}
