@@ -7,3 +7,6 @@ class PostForm(ModelForm):
     class Meta:
         model = Post
         fields = ['content']
+        labels = {
+            'content': 'New Post'
+        }

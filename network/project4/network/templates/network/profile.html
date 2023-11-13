@@ -1,0 +1,28 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+    <div class="above-posts">
+        <h1>Welcome to {{ viewed_user.username }}'s Profile</h1>
+        <p id="number-of-followers">Followers: {{ viewed_user.followers.count }}</p>
+        <p>Following: {{ viewed_user.following.count }}</p>
+        {% if user.is_authenticated and user.id != viewed_user.id %}
+            <button type="button" class="btn btn-primary" id="follow-button">
+                {% if following %}
+                    Unfollow
+                {% else %}
+                    Follow
+                {% endif %}
+            </button>
+        {% endif %}
+    </div>
+
+    <div id="posts">
+        {% for post in posts %}
+              {% include "network/post_template.html" %}
+        {% empty %}
+            <h3>No posts to display</h3>
+        {% endfor %}
+    </div>
+
+    {% include "network/pagination_template.html" %}
+{% endblock %}

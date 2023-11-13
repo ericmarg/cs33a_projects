@@ -1,0 +1,9 @@
+<div class="post" id="{{ post.id }}">
+    <a href="/user/{{ post.user.id }}">{{ post.user }}</a>
+    <div class="post-content">{{ post.content }}</div>
+    <p>{{ post.timestamp }}</p>
+    <button class="like" >&#x2764; <span class="like-count">{{ post.likes.count }}</span></button>
+    {% if post.user == user %}
+        <button type="button" class="btn btn-link edit-button">Edit post</button>
+    {% endif %}
+</div>

@@ -2,16 +2,47 @@
     border-style: solid;
     border-radius: 8px;
     border-color: grey;
-    margin-left: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
 }
 
 .post p {
-  margin: 0; /* This removes all margin (top and bottom) */
+    margin: 0;
 }
 
 .like {
-  background: none;
-  border: none;
-  font-size: 20px;
+    background: none;
+    border: none;
+    font-size: 20px;
+}
+
+@keyframes pulse {
+    0% {
+        font-size: 20px;
+    }
+
+    50% {
+        font-size: 30px;
+    }
+
+    100% {
+        font-size: 20px;
+    }
+}
+
+.like:active {
+    animation-name: pulse;
+    animation-duration: .5s;
+}
+
+.post a {
+    font-size: 24px;
+    color: darkblue;
+}
+
+.body {
+    margin: 20px;
+}
+
+.post-content {
+    font-size: 20px;
 }
