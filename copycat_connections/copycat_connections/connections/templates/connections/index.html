@@ -1,0 +1,31 @@
+{% extends "connections/layout.html" %}
+
+{% block body %}
+
+    <div class="flex-container">
+        <div class="flex-row">
+            <div class="top-section">
+                <h2>
+                    <strong class="title">Connections</strong>
+                    <span>{% now "F d, Y" %}</span>
+                </h2>
+            </div>
+        </div>
+        <div class="play-portal">
+            <div>
+                <div class="icon">
+                    <img src="https://www.nytimes.com/games-assets/v2/assets/connections/NYT-Connections-Icon.svg"
+                         height="64">
+                </div>
+                <h2>
+                    <strong class="title">Connections</strong>
+                </h2>
+                <p>Group words that share a common thread.</p>
+                <a href="{% url 'play' %}">
+                    <button type="button" class="btn btn-dark black-button">Play</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

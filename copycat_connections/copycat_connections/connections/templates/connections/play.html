@@ -1,0 +1,39 @@
+{% extends "connections/layout.html" %}
+
+{% block body %}
+
+    <div class="flex-row">
+        <div class="top-section">
+            <h2>
+                <strong class="title">Connections</strong>
+                <span>{% now "F d, Y" %}</span>
+            </h2>
+        </div>
+    </div>
+
+    <div class="container grid" id="grid-container">
+        <p>Create four groups of four!</p>
+        {% for row in rows %}
+            <div class="row" id="grid-row">
+                {% for word in row %}
+                    <div class="col-sm word-box">
+                        {{ word }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+    </div>
+    <div class="container">
+        <div class="row mistakes-remaining under-grid">
+            Mistakes remaining: <span class="mistakes-bullet">  &#8226; &#8226; &#8226; &#8226;</span>
+        </div>
+        <div class="row puzzle-buttons under-grid">
+            <button type="button" class="btn btn-outline-dark shuffle-buttons" id="shuffle-button">Shuffle</button>
+            <button type="button" class="btn btn-outline-dark shuffle-buttons" id="deselect-button">Deselect All
+            </button>
+            <button type="button" class="btn btn-outline-dark shuffle-buttons" id="submit-button">Submit</button>
+        </div>
+    </div>
+
+{% endblock %}
