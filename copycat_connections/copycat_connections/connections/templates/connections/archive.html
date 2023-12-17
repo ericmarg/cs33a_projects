@@ -1,0 +1,23 @@
+{% extends "connections/layout.html" %}
+
+{% block body %}
+
+    <h2>Play an Archive Puzzle</h2>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <div>
+        <ul>
+            {% for puzzle in puzzles %}
+                <li>
+                    <a href="{% url 'play' date=puzzle.date %}">#{{ puzzle.number }}; {{ puzzle.date }}</a>
+                </li>
+            {% empty %}
+                <h1>No puzzles found.</h1>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}

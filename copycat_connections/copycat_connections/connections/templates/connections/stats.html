@@ -1,0 +1,20 @@
+{% extends "connections/layout.html" %}
+
+{% block body %}
+
+    <div>
+        <div class="play-portal">
+            <h2>Puzzles you've solved so far:</h2>
+            <div>
+                <ol>
+                    {% for puzzle in solved %}
+                        <li>#{{ puzzle.number }}; puzzle release date: {{ puzzle.date }}</li>
+                    {% empty %}
+                        <h1>You haven't solved any puzzles yet!</h1>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
